@@ -19,7 +19,7 @@ def add_score(player, score, won=True):
         header = next(reader)
         for row in reader:
             if row and row[0] == player:
-                row[1] = str(int(row[1]) + int(score))         # update score
+                row[1] = str(int(row[1]) + int(score))        # update score
                 row[2] = str(int(row[2]) + 1)                 # games played
                 row[3] = str(int(row[3]) + (1 if won else 0)) # wins
                 row[4] = str(int(row[4]) + (0 if won else 1)) # losses
@@ -40,7 +40,7 @@ def disp_scores():
     sort_scores()
     with open(file, "r") as f:
         reader = csv.reader(f)
-        next(reader)
+        next(reader) #skip header
 
         # Proper table with aligned columns
         print("+------+----------+-------+--------------+------+--------+")
@@ -57,7 +57,7 @@ def disp_scores():
         print("+------+----------+-------+--------------+------+--------+")
 
 def sort(l, k):
-    """Custom bubble sort by column k descending."""
+    """Custom bubble sort by column k."""
     for i in range(len(l)):
         j = 0
         while j < len(l) - 1:
